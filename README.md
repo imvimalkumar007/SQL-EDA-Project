@@ -1,14 +1,32 @@
-# SQL EDA Project
+# SQL Project: Layoff Data Analysis
 
-This project demonstrates SQL-based Exploratory Data Analysis (EDA) on a sample dataset.
+This project is a continuation of a previous data cleaning project, focusing on conducting **Exploratory Data Analysis (EDA)** on a dataset of layoffs. Using SQL, this analysis extracts insights from the data, such as total layoffs by company, country, and year, as well as trends and patterns in layoff activity.
 
-## Project Files
-- `EDA.sql`: Contains SQL queries for performing EDA.
-- `data.csv`: The raw dataset used in the analysis.
+## Project Overview
 
-## Dataset
-The dataset includes information about [brief description of data, e.g., sales, customer details, etc.].
+The analysis builds on a cleaned dataset (`layoffs_staging2`) and includes SQL queries for:
+1. Identifying maximum layoffs and percentages.
+2. Summarizing layoffs by:
+   - Company
+   - Country
+   - Year
+   - Business stage
+3. Calculating rolling totals of layoffs over time.
+4. Ranking top companies with the highest layoffs each year.
 
-## How to Use
-1. Load the dataset into your preferred database (e.g., MySQL, PostgreSQL, SQLite).
-2. Use the SQL queries from `EDA.sql` to explore the dataset.
+The project demonstrates practical SQL techniques such as:
+- Aggregations (`SUM`, `MAX`)
+- Date functions (`YEAR`, `SUBSTRING`)
+- Window functions (`SUM() OVER`, `DENSE_RANK()`)
+
+## Key Queries
+Some of the core SQL operations include:
+- Total layoffs grouped by company and year:
+  ```sql
+  SELECT 
+      company, YEAR(`DATE`), SUM(total_laid_off)
+  FROM
+      layoffs_staging2
+  GROUP BY
+      company, YEAR(`DATE`)
+  ORDER BY 3 DESC;
