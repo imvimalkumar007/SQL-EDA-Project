@@ -1,4 +1,4 @@
-# SQL Project: Layoff Data Analysis
+# SQL Project: Layoff Data Analysis #2
 
 This project is a continuation of a previous data cleaning project, focusing on conducting **Exploratory Data Analysis (EDA)** on a dataset of layoffs. Using SQL, this analysis extracts insights from the data, such as total layoffs by company, country, and year, as well as trends and patterns in layoff activity.
 
